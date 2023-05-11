@@ -29,6 +29,13 @@ const HeroBanner = () => {
     }
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (query.length > 0) {
+      navigate(`/search/${query}`);
+    }
+  };
+
   return (
     <div className="heroBanner">
       {!loading && (
@@ -52,7 +59,7 @@ const HeroBanner = () => {
               onChange={(e) => setQuery(e.target.value)}
               onKeyUp={searchQueryHandler}
             />
-            <button>Search</button>
+            <button onClick={handleSubmit}>Search</button>
           </div>
         </div>
       </ContentWrapper>
